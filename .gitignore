@@ -1,1 +1,4 @@
 *.class
+lab1/Chat/.idea/Chat.iml
+**/.idea/modules.xml
+**/.idea/vcs.xml
