@@ -13,13 +13,12 @@ class Dispatcher(pykka.ThreadingActor):
 
     def request_sat_status(self, request: SatStatusRequest):
         worker = DispatcherWorker.start(self.sat_errors_db, request).proxy()
-        future = worker.gather_sat_status()
+        future = worker.request_sat_status()
         worker.stop()
         return future
         
     def request_sat_errors(self, request: SatErrorsRequest):
-        count = self.sat_errors_db.get_count_for_id(request.id).get()
-        return SatErrorsResponse(request.id, count)
+        return self.sat_errors_db.request_sat_errors(request)
 
     def stop(self):
         self.sat_errors_db.stop()

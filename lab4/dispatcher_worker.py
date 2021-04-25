@@ -17,7 +17,7 @@ class DispatcherWorker(pykka.ThreadingActor):
         self.in_time_count = 0
         self.response = SatStatusResponse(request.query_id)
 
-    def gather_sat_status(self):
+    def request_sat_status(self):
         # new thread for each satellite
         threads = []
         for i in range(self.range_start, self.range_end):

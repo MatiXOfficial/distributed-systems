@@ -1,6 +1,7 @@
 import pykka
-
 import sqlite3
+
+from dispatcher_requests import SatErrorsRequest, SatErrorsResponse
 
 class SatErrorsDB(pykka.ThreadingActor):
 
@@ -20,9 +21,9 @@ class SatErrorsDB(pykka.ThreadingActor):
             for id in range(100, 200):
                 self.c.execute("INSERT INTO sat_errors VALUES (:id, 0)", {'id': id})
 
-    def get_count_for_id(self, id):
-        self.c.execute("SELECT count from sat_errors WHERE id = :id", {'id': id})
-        return self.c.fetchone()[0]
+    def request_sat_errors(self, request: SatErrorsRequest):
+        self.c.execute("SELECT count from sat_errors WHERE id = :id", {'id': request.id})
+        return SatErrorsResponse(request.id, self.c.fetchone()[0])
 
     def add_error(self, id):
         with self.conn:

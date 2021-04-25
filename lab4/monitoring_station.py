@@ -32,7 +32,7 @@ class MonitoringStation(pykka.ThreadingActor):
     def ask_sat_errors(self, id):
         request = SatErrorsRequest(id)
         self.dispatcher.request_sat_errors(request)
-        response = self.dispatcher.request_sat_errors(request).get()
+        response = self.dispatcher.request_sat_errors(request).get().get()
         
         if response.count > 0:
             if response.count == 1:
