@@ -3,3 +3,4 @@ lab1/Chat/.idea/Chat.iml
 **/.idea/modules.xml
 **/.idea/vcs.xml
 *.vscode
+*__pycache__
