@@ -1,0 +1,24 @@
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <title>Pogodowe statystyki</title>
+</head>
+<body>
+
+<form action="http://127.0.0.1:5000/api/data">
+    <p><strong>Parametr:</strong></p>
+    <input type="radio" name="parameter" id="temp" value="temperatura" checked><label for="temp">Temperatura</label><br>
+    <input type="radio" name="parameter" id="pred" value="predkosc_wiatru"><label for="pred">Prędkość wiatru</label><br>
+    <input type="radio" name="parameter" id="kier" value="kierunek_wiatru"><label for="kier">Kierunek wiatru</label><br>
+    <input type="radio" name="parameter" id="wilg" value="wilgotnosc_wzgledna"><label for="wilg">Wilgotność względna</label><br>
+    <input type="radio" name="parameter" id="suma" value="suma_opadu"><label for="suma">Suma opadu</label><br>
+    <input type="radio" name="parameter" id="cisn" value="cisnienie"><label for="cisn">Ciśnienie</label><br><br>
+
+
+    <p><strong>Stacje:</strong></p>
+    <input type="text" name="stations" value="all" size="100"><br><br>
+    <input type="submit">
+</form>
+
+</body>
+</html>

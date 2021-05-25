@@ -5,3 +5,4 @@ lab1/Chat/.idea/Chat.iml
 *.vscode
 *__pycache__
 *.db
+*.idea
